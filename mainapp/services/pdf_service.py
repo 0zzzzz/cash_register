@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 
 
 def create_pdf(items, template, pdf_name):
+    """Создание PDF файла"""
     html = render_to_string(template, context=items)
 
     pdf_path = f'media/pdf/{pdf_name}.pdf'

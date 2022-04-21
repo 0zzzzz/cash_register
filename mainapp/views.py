@@ -13,6 +13,7 @@ import qrcode
 
 
 class ItemCreateAPIView(APIView):
+    """Создание товара"""
     def get(self, request):
         item = Item.objects.all()
         serializer = ItemSerializer(item, many=True)
@@ -27,6 +28,7 @@ class ItemCreateAPIView(APIView):
 
 
 class ItemUpdateAPIView(APIView):
+    """Изменение товара"""
     def get_object(self, pk):
         try:
             return Item.objects.get(pk=pk)
@@ -53,6 +55,7 @@ class ItemUpdateAPIView(APIView):
 
 
 class ReceiptPDFRender(APIView):
+    """Создание чека в фомате PDF"""
     def post(self, request):
         items_pk = None
         if 'items' in request.data:
@@ -72,8 +75,6 @@ class ReceiptPDFRender(APIView):
         # print(request.get_host())
         # print(socket.gethostbyname(socket.gethostname()))
         # print(socket.gethostbyname(socket.getfqdn()))
-        img.save('some_file.png')
-        image_data = open("some_file.png", "rb").read()
-        # html_response = create_pdf(data, 'pdf/receipt.html', f'receipt')
-        html_respons1 = 'hi'
-        return HttpResponse(image_data, content_type="image/png")
+        img.save('media/temp_qr/temp_qr_file.png')
+        image_data = open('media/temp_qr/temp_qr_file.png', 'rb').read()
+        return HttpResponse(image_data, content_type='image/png')

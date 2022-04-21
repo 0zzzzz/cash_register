@@ -3,6 +3,7 @@ from mainapp.models import Item
 
 
 class ItemSerializer(serializers.ModelSerializer):
+    """Cериализатор для товаров"""
     class Meta:
         model = Item
         fields = '__all__'
