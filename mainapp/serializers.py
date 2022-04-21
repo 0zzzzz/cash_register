@@ -12,7 +12,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         instance.id = validated_data.get('id', instance.id)
-        instance.title = validated_data.get('title ', instance.id)
-        instance.price = validated_data.get('title', instance.id)
+        instance.title = validated_data.get('title', instance.title)
+        instance.price = validated_data.get('price', instance.price)
         instance.save()
         return instance
