@@ -2,7 +2,7 @@ import datetime
 import socket
 
 from django.conf import settings
-from django.http import Http404, JsonResponse, HttpResponse
+from django.http import Http404, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -66,13 +66,14 @@ class ReceiptPDFRender(APIView):
         date = datetime.datetime.now()
         pdf_name = f'receipt_{date.strftime("%A_%d_%B_%Y_%I:%M%p_%s")}'
         create_pdf(data, 'pdf/receipt.html', pdf_name)
-        img = qrcode.make('http://10.0.0.8:8000/media/pdf/receipt_Thursday_21_April_2022_08:23PM_1650572615.pdf')
-        print(img)
-        print(settings.MEDIA_ROOT)
-        print(request.get_host())
-        print(socket.gethostbyname(socket.gethostname()))
-        print(socket.gethostbyname(socket.getfqdn()))
+        img = qrcode.make(f'http://{request.get_host()}/media/pdf/{pdf_name}.pdf')
+        # print(img)
+        # print(settings.MEDIA_ROOT)
+        # print(request.get_host())
+        # print(socket.gethostbyname(socket.gethostname()))
+        # print(socket.gethostbyname(socket.getfqdn()))
         img.save('some_file.png')
+        image_data = open("some_file.png", "rb").read()
         # html_response = create_pdf(data, 'pdf/receipt.html', f'receipt')
         html_respons1 = 'hi'
-        return HttpResponse(img, content_type="image/png")
+        return HttpResponse(image_data, content_type="image/png")
