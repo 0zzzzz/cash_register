@@ -15,5 +15,6 @@ class ItemSerializer(serializers.ModelSerializer):
         instance.id = validated_data.get('id', instance.id)
         instance.title = validated_data.get('title', instance.title)
         instance.price = validated_data.get('price', instance.price)
+        instance.quantity = validated_data.get('quantity', instance.quantity)
         instance.save()
         return instance
