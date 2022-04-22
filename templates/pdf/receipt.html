@@ -13,11 +13,12 @@
     <div>AДМИ</div>
     {% for item in items %}
         <p>НАИМЕНОВАНИЕ ТОВАРА</p>
-        <p>{{ item.title }} = {{ item.price }}</p>
+        <p>{{ item.title }}</p>
+        <p>{{ item.quantity }} = {{ item.item_cost }}</p>
         <br/>
     {% endfor %}
-    <div>ИТОГ 1600.00</div>
-    <div>НАЛИЧНЫМИ = 1600.00</div>
+    <div>ИТОГ {{ items_total_price }}</div>
+    <div>НАЛИЧНЫМИ = {{ items_total_price }}</div>
     <div>***********************</div>
     <div> 00003751# 05970</div>
 </body>

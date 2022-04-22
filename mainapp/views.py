@@ -2,6 +2,7 @@ import datetime
 import socket
 
 from django.conf import settings
+from django.db.models import Sum
 from django.http import Http404, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
@@ -61,20 +62,33 @@ class ReceiptPDFRender(APIView):
         if 'items' in request.data:
             items_pk = request.data['items']
         items = Item.objects.filter(pk__in=items_pk)
+        # по хорошему необходимо создать дополнительные модели для кассового чека
+        # и поместить подобную функцию туда
+        items_total_price = 0
+        for item in items:
+            items_total_price += item.item_cost
+
         date = datetime.datetime.now()
         data = {
             'items': items,
             'date': date.strftime('%m.%d.%y %H:%M'),
+            'items_total_price': items_total_price,
         }
         date = datetime.datetime.now()
         pdf_name = f'receipt_{date.strftime("%A_%d_%B_%Y_%I:%M%p_%s")}'
         create_pdf(data, 'pdf/receipt.html', pdf_name)
-        img = qrcode.make(f'http://{request.get_host()}/media/pdf/{pdf_name}.pdf')
+        # img = qrcode.make(f'http://{request.get_host()}/media/pdf/{pdf_name}.pdf')
+        image = qrcode.make(f'{request.get_host()}/media/pdf/{pdf_name}.pdf')
+        # sales_query = items.values().annotate(quantity1=Sum('quantity'))
+        # sales_query = items.aggregate(quantity1=Sum('quantity'))
+
+        # print(sales_query)
+
         # print(img)
         # print(settings.MEDIA_ROOT)
         # print(request.get_host())
         # print(socket.gethostbyname(socket.gethostname()))
         # print(socket.gethostbyname(socket.getfqdn()))
-        img.save('media/temp_qr/temp_qr_file.png')
-        image_data = open('media/temp_qr/temp_qr_file.png', 'rb').read()
-        return HttpResponse(image_data, content_type='image/png')
+        image.save('media/temp_qr/temp_qr_file.png')
+        with open('media/temp_qr/temp_qr_file.png', 'rb') as image:
+            return HttpResponse(image, content_type='image/png')
