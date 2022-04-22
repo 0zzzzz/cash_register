@@ -1,11 +1,12 @@
 from django.db import models
 
+# если будут необязательные поля
 NULLABLE = {'blank': True, 'null': True}
 
 
 class Item(models.Model):
     """Модель товаров"""
-    title = models.CharField(max_length=64, verbose_name='наименование')
+    title = models.CharField(max_length=64, unique=True, verbose_name='наименование')
     price = models.DecimalField(decimal_places=2, max_digits=10, default=0, verbose_name='стоимость')
     # поле quantity необходимо перенести в другую модель
     quantity = models.PositiveSmallIntegerField(default=0)
@@ -30,7 +31,7 @@ class Item(models.Model):
 #
 #
 # class CashRegisterCheckItem(models.Model):
-#     """Товары из чека"""
+#     """Поле товара из чека"""
 #     order = models.ForeignKey(CashRegisterCheck, on_delete=models.CASCADE, related_name='чек')
 #     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='cash_register_check_item')
 #     quantity = models.PositiveSmallIntegerField(default=0)
