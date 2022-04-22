@@ -1,8 +1,4 @@
 import datetime
-import socket
-
-from django.conf import settings
-from django.db.models import Sum
 from django.http import Http404, HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
@@ -15,13 +11,14 @@ import qrcode
 
 class ItemCreateAPIView(APIView):
     """Создание товара"""
+
     def get(self, request):
         item = Item.objects.all()
         serializer = ItemSerializer(item, many=True)
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = ItemSerializer(data=request.data)
+        serializer = ItemSerializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -57,6 +54,7 @@ class ItemUpdateAPIView(APIView):
 
 class ReceiptPDFRender(APIView):
     """Создание чека в фомате PDF"""
+
     def post(self, request):
         items_pk = None
         if 'items' in request.data:
@@ -74,21 +72,9 @@ class ReceiptPDFRender(APIView):
             'date': date.strftime('%m.%d.%y %H:%M'),
             'items_total_price': items_total_price,
         }
-        date = datetime.datetime.now()
-        pdf_name = f'receipt_{date.strftime("%A_%d_%B_%Y_%I:%M%p_%s")}'
+        pdf_name = f'receipt_{date.strftime("%A_%d_%B_%Y_%I_%M%p_%s")}'
         create_pdf(data, 'pdf/receipt.html', pdf_name)
-        # img = qrcode.make(f'http://{request.get_host()}/media/pdf/{pdf_name}.pdf')
         image = qrcode.make(f'{request.get_host()}/media/pdf/{pdf_name}.pdf')
-        # sales_query = items.values().annotate(quantity1=Sum('quantity'))
-        # sales_query = items.aggregate(quantity1=Sum('quantity'))
-
-        # print(sales_query)
-
-        # print(img)
-        # print(settings.MEDIA_ROOT)
-        # print(request.get_host())
-        # print(socket.gethostbyname(socket.gethostname()))
-        # print(socket.gethostbyname(socket.getfqdn()))
         image.save('media/temp_qr/temp_qr_file.png')
         with open('media/temp_qr/temp_qr_file.png', 'rb') as image:
             return HttpResponse(image, content_type='image/png')
