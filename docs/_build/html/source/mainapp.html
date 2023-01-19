@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mainapp package &mdash; документация cr 1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> cr
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mainapp package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mainapp.admin">mainapp.admin module</a></li>
+<li><a class="reference internal" href="#module-mainapp.apps">mainapp.apps module</a><ul>
+<li><a class="reference internal" href="#mainapp.apps.MainappConfig"><code class="docutils literal notranslate"><span class="pre">MainappConfig</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.apps.MainappConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">MainappConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.apps.MainappConfig.name"><code class="docutils literal notranslate"><span class="pre">MainappConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mainapp.models">mainapp.models module</a><ul>
+<li><a class="reference internal" href="#mainapp.models.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.models.Item.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Item.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Item.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.id"><code class="docutils literal notranslate"><span class="pre">Item.id</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.item_cost"><code class="docutils literal notranslate"><span class="pre">Item.item_cost</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.objects"><code class="docutils literal notranslate"><span class="pre">Item.objects</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.price"><code class="docutils literal notranslate"><span class="pre">Item.price</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.quantity"><code class="docutils literal notranslate"><span class="pre">Item.quantity</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.models.Item.title"><code class="docutils literal notranslate"><span class="pre">Item.title</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mainapp.serializers">mainapp.serializers module</a><ul>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer"><code class="docutils literal notranslate"><span class="pre">ItemSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">ItemSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">ItemSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">ItemSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer.create"><code class="docutils literal notranslate"><span class="pre">ItemSerializer.create()</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.serializers.ItemSerializer.update"><code class="docutils literal notranslate"><span class="pre">ItemSerializer.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mainapp.tests">mainapp.tests module</a></li>
+<li><a class="reference internal" href="#module-mainapp.urls">mainapp.urls module</a></li>
+<li><a class="reference internal" href="#module-mainapp.views">mainapp.views module</a><ul>
+<li><a class="reference internal" href="#mainapp.views.ItemCreateAPIView"><code class="docutils literal notranslate"><span class="pre">ItemCreateAPIView</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.views.ItemCreateAPIView.get"><code class="docutils literal notranslate"><span class="pre">ItemCreateAPIView.get()</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.views.ItemCreateAPIView.post"><code class="docutils literal notranslate"><span class="pre">ItemCreateAPIView.post()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mainapp.views.ItemUpdateAPIView"><code class="docutils literal notranslate"><span class="pre">ItemUpdateAPIView</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.views.ItemUpdateAPIView.delete"><code class="docutils literal notranslate"><span class="pre">ItemUpdateAPIView.delete()</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.views.ItemUpdateAPIView.get"><code class="docutils literal notranslate"><span class="pre">ItemUpdateAPIView.get()</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.views.ItemUpdateAPIView.get_object"><code class="docutils literal notranslate"><span class="pre">ItemUpdateAPIView.get_object()</span></code></a></li>
+<li><a class="reference internal" href="#mainapp.views.ItemUpdateAPIView.put"><code class="docutils literal notranslate"><span class="pre">ItemUpdateAPIView.put()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mainapp.views.ReceiptPDFRender"><code class="docutils literal notranslate"><span class="pre">ReceiptPDFRender</span></code></a><ul>
+<li><a class="reference internal" href="#mainapp.views.ReceiptPDFRender.post"><code class="docutils literal notranslate"><span class="pre">ReceiptPDFRender.post()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mainapp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cr</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">mainapp package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/mainapp.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mainapp-package">
+<h1>mainapp package<a class="headerlink" href="#mainapp-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mainapp.migrations.html">mainapp.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mainapp.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mainapp.migrations.html#module-mainapp.migrations.0001_initial">mainapp.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mainapp.migrations.html#module-mainapp.migrations.0002_item_quantity">mainapp.migrations.0002_item_quantity module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0002_item_quantity.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0002_item_quantity.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0002_item_quantity.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mainapp.migrations.html#module-mainapp.migrations.0003_alter_item_title">mainapp.migrations.0003_alter_item_title module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0003_alter_item_title.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0003_alter_item_title.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mainapp.migrations.html#mainapp.migrations.0003_alter_item_title.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mainapp.migrations.html#module-mainapp.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mainapp.admin">
+<span id="mainapp-admin-module"></span><h2>mainapp.admin module<a class="headerlink" href="#module-mainapp.admin" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mainapp.apps">
+<span id="mainapp-apps-module"></span><h2>mainapp.apps module<a class="headerlink" href="#module-mainapp.apps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.apps.MainappConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.apps.</span></span><span class="sig-name descname"><span class="pre">MainappConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.apps.MainappConfig" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.apps.MainappConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#mainapp.apps.MainappConfig.default_auto_field" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.apps.MainappConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mainapp'</span></em><a class="headerlink" href="#mainapp.apps.MainappConfig.name" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mainapp.models">
+<span id="mainapp-models-module"></span><h2>mainapp.models module<a class="headerlink" href="#module-mainapp.models" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.models.Item">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.models.</span></span><span class="sig-name descname"><span class="pre">Item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.models.Item" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Модель товаров</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mainapp.models.Item.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#mainapp.models.Item.DoesNotExist" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mainapp.models.Item.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#mainapp.models.Item.MultipleObjectsReturned" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.models.Item.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#mainapp.models.Item.id" title="Ссылка на это определение"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mainapp.models.Item.item_cost">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">item_cost</span></span><a class="headerlink" href="#mainapp.models.Item.item_cost" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.models.Item.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#mainapp.models.Item.objects" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.models.Item.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#mainapp.models.Item.price" title="Ссылка на это определение"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.models.Item.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#mainapp.models.Item.quantity" title="Ссылка на это определение"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.models.Item.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#mainapp.models.Item.title" title="Ссылка на это определение"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mainapp.serializers">
+<span id="mainapp-serializers-module"></span><h2>mainapp.serializers module<a class="headerlink" href="#module-mainapp.serializers" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.serializers.</span></span><span class="sig-name descname"><span class="pre">ItemSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.serializers.ItemSerializer" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Cериализатор для товаров</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#mainapp.serializers.ItemSerializer.Meta" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#mainapp.serializers.ItemSerializer.Meta.fields" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#mainapp.serializers.ItemSerializer.Meta.model" title="Ссылка на это определение"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#mainapp.models.Item" title="mainapp.models.Item"><code class="xref py py-class docutils literal notranslate"><span class="pre">Item</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.serializers.ItemSerializer.create" title="Ссылка на это определение"></a></dt>
+<dd><p>We have a bit of extra checking around this in order to provide
+descriptive messages when something goes wrong, but this method is
+essentially just:</p>
+<blockquote>
+<div><p>return ExampleModel.objects.create(<a href="#id1"><span class="problematic" id="id2">**</span></a>validated_data)</p>
+</div></blockquote>
+<p>If there are many to many fields present on the instance then they
+cannot be set until the model is instantiated, in which case the
+implementation is like so:</p>
+<blockquote>
+<div><p>example_relationship = validated_data.pop(„example_relationship“)
+instance = ExampleModel.objects.create(<a href="#id3"><span class="problematic" id="id4">**</span></a>validated_data)
+instance.example_relationship = example_relationship
+return instance</p>
+</div></blockquote>
+<p>The default implementation also does not handle nested relationships.
+If you want to support writable nested relationships you’ll need
+to write an explicit <cite>.create()</cite> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.serializers.ItemSerializer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.serializers.ItemSerializer.update" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mainapp.tests">
+<span id="mainapp-tests-module"></span><h2>mainapp.tests module<a class="headerlink" href="#module-mainapp.tests" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mainapp.urls">
+<span id="mainapp-urls-module"></span><h2>mainapp.urls module<a class="headerlink" href="#module-mainapp.urls" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-mainapp.views">
+<span id="mainapp-views-module"></span><h2>mainapp.views module<a class="headerlink" href="#module-mainapp.views" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.views.ItemCreateAPIView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.views.</span></span><span class="sig-name descname"><span class="pre">ItemCreateAPIView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemCreateAPIView" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>Создание товара</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemCreateAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemCreateAPIView.get" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemCreateAPIView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemCreateAPIView.post" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.views.ItemUpdateAPIView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.views.</span></span><span class="sig-name descname"><span class="pre">ItemUpdateAPIView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemUpdateAPIView" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>Изменение товара</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemUpdateAPIView.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemUpdateAPIView.delete" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemUpdateAPIView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemUpdateAPIView.get" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemUpdateAPIView.get_object">
+<span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemUpdateAPIView.get_object" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ItemUpdateAPIView.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ItemUpdateAPIView.put" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mainapp.views.ReceiptPDFRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mainapp.views.</span></span><span class="sig-name descname"><span class="pre">ReceiptPDFRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ReceiptPDFRender" title="Ссылка на это определение"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>Создание чека в фомате PDF</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mainapp.views.ReceiptPDFRender.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mainapp.views.ReceiptPDFRender.post" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mainapp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mainapp" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, oz.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
